@@ -12,6 +12,7 @@ class Strength
   end
 
   def one_rep_max
+    @one_rep_max
   end
 
   def program
@@ -19,7 +20,9 @@ class Strength
   end
 
   def max_lift
-    @max_lift ||= (@one_rep_max * @reps) * (1/30) + @one_rep_max.to_f
+    a = (@one_rep_max * @reps)
+    b = (1.0/30.0)
+    @max_lift = a * b + @one_rep_max
   end
 
   def warm_up
