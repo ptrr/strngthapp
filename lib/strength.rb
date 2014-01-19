@@ -52,9 +52,19 @@ class Strength
   end
 
   def self.round_with_smallest_increase(needed_weight)
-    weight = 20
+    return 0 if needed_weight > 10000
+    weight = 20.0
+    old_weight = 0.0
+
     while weight < needed_weight
+      old_weight = weight
       weight += Strength.min_increase
+      if needed_weight - old_weight < 1.25
+        return old_weight
+      end
+      if needed_weight - weight < 1.25
+        return weight
+      end
     end
     weight
   end
