@@ -16,46 +16,6 @@ ActiveRecord::Schema.define(version: 20140118135313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "exercises", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "programme_id"
-  end
-
-  create_table "lifters", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
-    t.string   "unlock_token"
-    t.datetime "locked_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "lifters", ["confirmation_token"], name: "index_lifters_on_confirmation_token", unique: true, using: :btree
-  add_index "lifters", ["email"], name: "index_lifters_on_email", unique: true, using: :btree
-  add_index "lifters", ["reset_password_token"], name: "index_lifters_on_reset_password_token", unique: true, using: :btree
-  add_index "lifters", ["unlock_token"], name: "index_lifters_on_unlock_token", unique: true, using: :btree
-
-  create_table "programmes", force: true do |t|
-    t.string  "name"
-    t.integer "lifter_id"
-  end
-
   create_table "programs", force: true do |t|
     t.decimal "overhead_press_weight"
     t.integer "overhead_press_reps"
@@ -65,26 +25,6 @@ ActiveRecord::Schema.define(version: 20140118135313) do
     t.integer "bench_reps"
     t.decimal "squat_weight"
     t.integer "squat_reps"
-  end
-
-  create_table "series", force: true do |t|
-    t.decimal  "weight"
-    t.integer  "repetitions"
-    t.integer  "plus_repetitions"
-    t.boolean  "has_plus"
-    t.integer  "exercise_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "standards", force: true do |t|
-    t.decimal "weight"
-    t.integer "gender"
-    t.integer "benchpress"
-    t.integer "ohp"
-    t.integer "squat"
-    t.integer "deadlift"
-    t.integer "lifter_id"
   end
 
 end
