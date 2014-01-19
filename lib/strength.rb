@@ -19,7 +19,7 @@ class Strength
   end
 
   def max_lift
-    @max_lift ||= (@one_rep_max * @reps) * 0.03333 + @one_rep_max.to_f
+    @max_lift ||= (@one_rep_max * @reps) * (1/30) + @one_rep_max.to_f
   end
 
   def warm_up
@@ -50,8 +50,7 @@ class Strength
 
   def self.round_with_smallest_increase(needed_weight)
     weight = 20
-    factors = factors_of(needed_weight)
-    while weight <= needed_weight
+    while weight < needed_weight
       weight += Strength.min_increase
     end
     weight

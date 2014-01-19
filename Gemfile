@@ -14,6 +14,7 @@ gem 'paranoia', github: 'radar/paranoia', branch: 'rails4'    # Soft deletes
 gem 'secure_headers'                                          # Extra basic security
 
 gem 'sass-rails',   '~> 4.0'                                  # Sass css syntax
+gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'coffee-rails', '~> 4.0'                                  # Coffeescript
 gem 'slim-rails'                                              # Slim templates
 gem 'jquery-rails'                                            # JQuery JS framework
@@ -23,6 +24,7 @@ gem 'gemoji'                                                  # Emojis
 gem 'redcarpet'                                               # Markdown parser
 gem 'uglifier', '>= 1.0.3'                                    # Javascript compiler
 gem 'filepicker-rails'                                        # Ink Filepicker
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development do
   gem 'better_errors'                                         # Improved error interface

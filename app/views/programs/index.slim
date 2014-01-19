@@ -1,0 +1,136 @@
+.col-md-6
+  table.table.table-striped.table-bordered
+    tr
+      th
+      th Week1
+      th Week2
+      th Week3
+      th Deload
+    tr#overhead_press
+      th Overheadpress
+      td.week1
+        .rep0
+        .rep1
+        .rep2
+      td.week2
+        .rep0
+        .rep1
+        .rep2
+      td.week3
+        .rep0
+        .rep1
+        .rep2
+      td.deload
+        .rep0
+        .rep1
+        .rep2
+    tr#deadlift
+      th Deadlift
+      td.week1
+        .rep0
+        .rep1
+        .rep2
+      td.week2
+        .rep0
+        .rep1
+        .rep2
+      td.week3
+        .rep0
+        .rep1
+        .rep2
+      td.deload
+        .rep0
+        .rep1
+        .rep2
+    tr#bench
+      th Bench
+      td.week1
+        .rep0
+        .rep1
+        .rep2
+      td.week2
+        .rep0
+        .rep1
+        .rep2
+      td.week3
+        .rep0
+        .rep1
+        .rep2
+      td.deload
+        .rep0
+        .rep1
+        .rep2
+    tr#squat
+      th Squat
+      td.week1
+        .rep0
+        .rep1
+        .rep2
+      td.week2
+        .rep0
+        .rep1
+        .rep2
+      td.week3
+        .rep0
+        .rep1
+        .rep2
+      td.deload
+        .rep0
+        .rep1
+        .rep2
+.col-md-6
+  =form_for @program, html: {id: "stronger", role: 'form' } do |f|
+    fieldset
+      legend Overhead press
+      =f.text_field :overhead_press_reps, placeholder: "Repetitions", class: 'form-control'
+      =f.text_field :overhead_press_weight, placeholder: "Weight", class: 'form-control'
+
+    fieldset
+      legend Deadlift
+      =f.text_field :deadlift_reps, class: 'form-control', placeholder: "Repetitions"
+      =f.text_field :deadlift_weight, class: 'form-control', placeholder: "Weight"
+
+    fieldset
+      legend Bench
+      =f.text_field :bench_reps, class: 'form-control', placeholder: "Repetitions"
+      =f.text_field :bench_weight, class: 'form-control', placeholder: "Weight"
+
+    fieldset
+      legend Squat
+      =f.text_field :squat_reps, class: 'form-control', placeholder: "Repetitions"
+      =f.text_field :squat_weight, class: 'form-control', placeholder: "Weight"
+
+
+    =f.submit 'submit',  class: 'btn btn-large btn-primary'
+
+javascript:
+  $( document ).ready(function() {
+    $("#stronger").submit(function(e){
+    form = $("#stronger").serialize();
+
+      $.ajax({
+        type: "POST",
+        url: "/get_strong",
+        data: form,
+
+        success: function(data){
+          values = data
+
+          $.map(values, function(value, i) {
+            var exercise = i
+            $.map(value, function(sets, i){
+              var period = i
+              console.log(period);
+              $.map(sets, function(set, i) {
+                var selector = "#"+exercise+" ."+period+" .rep"+i;
+                $(selector).html(set[0]+ " x " +set[1]+ "kg");
+              });
+            });
+          });
+        }
+
+        });
+        event.preventDefault();
+        return false;
+    });
+  });
