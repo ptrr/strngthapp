@@ -9,6 +9,8 @@ class CreateProgram < ActiveRecord::Migration
       t.integer :bench_reps
       t.decimal :squat_weight
       t.integer :squat_reps
+
+      t.timestamps
     end
   end
 end
