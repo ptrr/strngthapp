@@ -1,4 +1,12 @@
 module Starting
+  def warm_up
+    [
+      [5, Strength.round_with_smallest_increase(max_lift * 0.35)],
+      [5, Strength.round_with_smallest_increase(max_lift * 0.45)],
+      [3, Strength.round_with_smallest_increase(max_lift * 0.55)]
+    ]
+  end
+
   def week1
     [
       [5, Strength.round_with_smallest_increase(max_lift * 0.60)],

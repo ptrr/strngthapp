@@ -25,13 +25,6 @@ class Strength
     @max_lift = a * b + @one_rep_max
   end
 
-  def warm_up
-    [
-      [5, Strength.round_with_smallest_increase(max_lift * 0.4)],
-      [5, Strength.round_with_smallest_increase(max_lift * 0.5)],
-      [3, Strength.round_with_smallest_increase(max_lift * 0.6)]
-    ]
-  end
 
   def main_lift
   end

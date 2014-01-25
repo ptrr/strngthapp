@@ -24,7 +24,6 @@ gem 'gemoji'                                                  # Emojis
 gem 'redcarpet'                                               # Markdown parser
 gem 'uglifier', '>= 1.0.3'                                    # Javascript compiler
 gem 'filepicker-rails'                                        # Ink Filepicker
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development do
   gem 'better_errors'                                         # Improved error interface
