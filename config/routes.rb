@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
 
   post '/get_strong', controller: :programs, action: :get_strong
+  post '/level', controller: :programs, action: :level
 end

@@ -114,9 +114,11 @@
             =f.text_field :overhead_press_reps, placeholder: "Repetitions", class: 'form-control'
           .col-xs-4
             =f.text_field :overhead_press_weight, placeholder: "Weight", class: 'form-control'
-        .progress.progress-striped
-          .progress-bar.progress-bar-success role="progressbar" style="width: 20%"
+        h6 Max lift:
+        #overhead_press_max_lift.label.label-success
+          ' 0 kg
 
+        hr
         .row.form-group
           .col-xs-4
             =f.label :deadlift
@@ -125,9 +127,11 @@
           .col-xs-4
             =f.text_field :deadlift_weight, class: 'form-control', placeholder: "Weight"
 
-        .progress.progress-striped
-          .progress-bar.progress-bar-info role="progressbar" style="width: 20%"
+        h6 Max lift:
+        #deadlift_max_lift.label.label-info
+          ' 0 kg
 
+        hr
         .row.form-group
           .col-xs-4
             =f.label :bench
@@ -136,9 +140,11 @@
           .col-xs-4
             =f.text_field :bench_weight, class: 'form-control', placeholder: "Weight"
 
-        .progress.progress-striped
-          .progress-bar.progress-bar-warning role="progressbar" style="width: 20%"
+        h6 Max lift:
+        #bench_max_lift.label.label-warning
+          ' 0 kg
 
+        hr
         .row.form-group
           .col-xs-4
             =f.label :squat
@@ -146,8 +152,10 @@
             =f.text_field :squat_reps, class: 'form-control', placeholder: "Repetitions"
           .col-xs-4
             =f.text_field :squat_weight, class: 'form-control', placeholder: "Weight"
-        .progress.progress-striped
-          .progress-bar.progress-bar-danger role="progressbar" style="width: 20%"
+
+        h6 Max lift:
+        #squat_max_lift.label.label-danger
+          ' 0 kg
 
   .form-actions.col-xs-12
     =f.submit 'Calculate',  class: 'btn btn-primary btn-lg btn-block'
@@ -156,6 +164,20 @@ javascript:
   $( document ).ready(function() {
     $("#stronger").submit(function(e){
     form = $("#stronger").serialize();
+
+      $.ajax({
+        type: "POST",
+        url: "/level",
+        data: form,
+
+        success: function(data){
+          values = data
+          $.map(values, function(value, i) {
+            selector = "#"+i+"_max_lift";
+            $(selector).html(value + " kg");
+          });
+        }
+      });
 
       $.ajax({
         type: "POST",
@@ -168,8 +190,8 @@ javascript:
           $.map(values, function(value, i) {
             var exercise = i
             $.map(value, function(sets, i){
-              var period = i
-              console.log(period);
+              var period = i;
+
               $.map(sets, function(set, i) {
                 var selector = "#"+exercise+" ."+period+" .rep"+i;
                 $(selector).html(set[0]+ " x " +set[1]+ "kg");

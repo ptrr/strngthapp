@@ -16,7 +16,7 @@ class Strength
   end
 
   def program
-    {warmup: warm_up, week1: week1, week2: week2, week3: week3, deload: deload}
+    {warmup: warm_up, week1: week1, week2: week2, week3: week3, deload: deload }
   end
 
   def max_lift
