@@ -44,25 +44,27 @@ class Strength
   def calculate
   end
 
-  def self.round_with_smallest_increase(needed_weight)
-    return 0 if needed_weight > 10000
-    weight = 20.0
-    old_weight = 0.0
+  class << self
+    def round_with_smallest_increase(needed_weight)
+      return 0 if needed_weight > 10000
+      weight = 20.0
+      old_weight = 0.0
 
-    while weight < needed_weight
-      old_weight = weight
-      weight += Strength.min_increase
-      if needed_weight - old_weight < 1.25
-        return old_weight
+      while weight < needed_weight
+        old_weight = weight
+        weight += Strength.min_increase
+        if needed_weight - old_weight < 1.25
+          return old_weight
+        end
+        if needed_weight - weight < 1.25
+          return weight
+        end
       end
-      if needed_weight - weight < 1.25
-        return weight
-      end
+      weight
     end
-    weight
-  end
 
-  def self.min_increase
-    2.5
+    def min_increase
+      2.5
+    end
   end
 end

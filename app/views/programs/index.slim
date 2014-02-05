@@ -1,135 +1,143 @@
-.col-md-12
-  h1 Get stronger
 .col-md-6
-  table.table.table-striped.table-bordered
-    tr
-      th
-      th Warm up
-      th Week1
-      th Week2
-      th Week3
-      th Deload
-    tr#overhead_press.success
-      th Overheadpress
-      td.warmup(style="background: #E8C574!important")
-        .rep0
-        .rep1
-        .rep2
-      td.week1
-        .rep0
-        .rep1
-        .rep2
-      td.week2
-        .rep0
-        .rep1
-        .rep2
-      td.week3
-        .rep0
-        .rep1
-        .rep2
-      td.deload
-        .rep0
-        .rep1
-        .rep2
-    tr#deadlift.info
-      th Deadlift
-      td.warmup(style="background: #E8C574!important")
-        .rep0
-        .rep1
-        .rep2
-      td.week1
-        .rep0
-        .rep1
-        .rep2
-      td.week2
-        .rep0
-        .rep1
-        .rep2
-      td.week3
-        .rep0
-        .rep1
-        .rep2
-      td.deload
-        .rep0
-        .rep1
-        .rep2
-    tr#bench.warning
-      th Bench
-      td.warmup(style="background: #E8C574!important")
-        .rep0
-        .rep1
-        .rep2
-      td.week1
-        .rep0
-        .rep1
-        .rep2
-      td.week2
-        .rep0
-        .rep1
-        .rep2
-      td.week3
-        .rep0
-        .rep1
-        .rep2
-      td.deload
-        .rep0
-        .rep1
-        .rep2
-    tr#squat.danger
-      th Squat
-      td.warmup(style="background: #E8C574!important")
-        .rep0
-        .rep1
-        .rep2
-      td.week1
-        .rep0
-        .rep1
-        .rep2
-      td.week2
-        .rep0
-        .rep1
-        .rep2
-      td.week3
-        .rep0
-        .rep1
-        .rep2
-      td.deload
-        .rep0
-        .rep1
-        .rep2
+
+  .panel.panel-info
+    .panel-heading
+      ' 5/3/1 cycle
+    .panel-body
+      ' This is one cycle.
+    table.table.table-striped
+      tr
+        th
+        th Warm up
+        th Week1
+        th Week2
+        th Week3
+        th Deload
+      tr#overhead_press.success
+        th Overheadpress
+        td.warmup(style="background: #E8C574!important")
+          .rep0
+          .rep1
+          .rep2
+        td.week1
+          .rep0
+          .rep1
+          .rep2
+        td.week2
+          .rep0
+          .rep1
+          .rep2
+        td.week3
+          .rep0
+          .rep1
+          .rep2
+        td.deload
+          .rep0
+          .rep1
+          .rep2
+      tr#deadlift.info
+        th Deadlift
+        td.warmup(style="background: #E8C574!important")
+          .rep0
+          .rep1
+          .rep2
+        td.week1
+          .rep0
+          .rep1
+          .rep2
+        td.week2
+          .rep0
+          .rep1
+          .rep2
+        td.week3
+          .rep0
+          .rep1
+          .rep2
+        td.deload
+          .rep0
+          .rep1
+          .rep2
+      tr#bench.warning
+        th Bench
+        td.warmup(style="background: #E8C574!important")
+          .rep0
+          .rep1
+          .rep2
+        td.week1
+          .rep0
+          .rep1
+          .rep2
+        td.week2
+          .rep0
+          .rep1
+          .rep2
+        td.week3
+          .rep0
+          .rep1
+          .rep2
+        td.deload
+          .rep0
+          .rep1
+          .rep2
+      tr#squat.danger
+        th Squat
+        td.warmup(style="background: #E8C574!important")
+          .rep0
+          .rep1
+          .rep2
+        td.week1
+          .rep0
+          .rep1
+          .rep2
+        td.week2
+          .rep0
+          .rep1
+          .rep2
+        td.week3
+          .rep0
+          .rep1
+          .rep2
+        td.deload
+          .rep0
+          .rep1
+          .rep2
 =form_for @program, html: {id: "stronger", role: 'form' } do |f|
   .col-md-6
-    .row.form-group
-      .col-xs-4
-        =f.label :overhead_press
-      .col-xs-4
-        =f.text_field :overhead_press_reps, placeholder: "Repetitions", class: 'form-control'
-      .col-xs-4
-        =f.text_field :overhead_press_weight, placeholder: "Weight", class: 'form-control'
+    .panel.panel-success
+      .panel-heading
+        ' Your maxes
+      .panel-body
+        .row.form-group
+          .col-xs-4
+            =f.label :overhead_press
+          .col-xs-4
+            =f.text_field :overhead_press_reps, placeholder: "Repetitions", class: 'form-control'
+          .col-xs-4
+            =f.text_field :overhead_press_weight, placeholder: "Weight", class: 'form-control'
 
-    .row.form-group
-      .col-xs-4
-        =f.label :deadlift
-      .col-xs-4
-        =f.text_field :deadlift_reps, class: 'form-control', placeholder: "Repetitions"
-      .col-xs-4
-        =f.text_field :deadlift_weight, class: 'form-control', placeholder: "Weight"
+        .row.form-group
+          .col-xs-4
+            =f.label :deadlift
+          .col-xs-4
+            =f.text_field :deadlift_reps, class: 'form-control', placeholder: "Repetitions"
+          .col-xs-4
+            =f.text_field :deadlift_weight, class: 'form-control', placeholder: "Weight"
 
-    .row.form-group
-      .col-xs-4
-        =f.label :bench
-      .col-xs-4
-        =f.text_field :bench_reps, class: 'form-control', placeholder: "Repetitions"
-      .col-xs-4
-        =f.text_field :bench_weight, class: 'form-control', placeholder: "Weight"
+        .row.form-group
+          .col-xs-4
+            =f.label :bench
+          .col-xs-4
+            =f.text_field :bench_reps, class: 'form-control', placeholder: "Repetitions"
+          .col-xs-4
+            =f.text_field :bench_weight, class: 'form-control', placeholder: "Weight"
 
-    .row.form-group
-      .col-xs-4
-        =f.label :squat
-      .col-xs-4
-        =f.text_field :squat_reps, class: 'form-control', placeholder: "Repetitions"
-      .col-xs-4
-        =f.text_field :squat_weight, class: 'form-control', placeholder: "Weight"
+        .row.form-group
+          .col-xs-4
+            =f.label :squat
+          .col-xs-4
+            =f.text_field :squat_reps, class: 'form-control', placeholder: "Repetitions"
+          .col-xs-4
+            =f.text_field :squat_weight, class: 'form-control', placeholder: "Weight"
 
   .form-actions.col-xs-12
     =f.submit 'Calculate',  class: 'btn btn-primary btn-lg btn-block'
