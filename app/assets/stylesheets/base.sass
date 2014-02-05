@@ -10,7 +10,7 @@ $link-color: $brand-primary
 @import "bootstrap/mixins"
 
 @mixin text-shadow($color, $offset-x, $offset-y, $dispersion)
-  text-shadow: $color, $offset-x, $offset-y, $dispersion
+  text-shadow: $offset-x $offset-y $dispersion $color
 html
   height: 100%
   width: 100%
@@ -27,23 +27,27 @@ html
 
 th
   font-weight: normal
-  +text-shadow(#EEE, 1, 1, 1)
+
+td
+  font-size: 0.9em
+  color: white
 
 .table>thead>tr>.info, .table>tbody>tr>.info, .table>tfoot>tr>.info, .table>thead>.info>td, .table>tbody>.info>td, .table>tfoot>.info>td, .table>thead>.info>th, .table>tbody>.info>th, .table>tfoot>.info>th
-  background-color: $brand-info!important
+  color: $brand-info!important
+  background: $state-info-bg
 
 .table>thead>tr>.danger, .table>tbody>tr>.danger, .table>tfoot>tr>.danger, .table>thead>.danger>td, .table>tbody>.danger>td, .table>tfoot>.danger>td, .table>thead>.danger>th, .table>tbody>.danger>th, .table>tfoot>.danger>th
-  background-color: $brand-danger!important
+  color: $brand-danger!important
 
 .table > thead > tr > .success, .table > thead > .success > td, .table > thead > .success > th, .table > tbody > tr > .success, .table > tbody > .success > td, .table > tbody > .success > th, .table > tfoot > tr > .success, .table > tfoot > .success > td, .table > tfoot > .success > th
-  background-color: $brand-success!important
+  color: $brand-success!important
 
 .table > thead > tr > .warning, .table > thead > .warning > td, .table > thead > .warning > th, .table > tbody > tr > .warning, .table > tbody > .warning > td, .table > tbody > .warning > th, .table > tfoot > tr > .warning, .table > tfoot > .warning > td, .table > tfoot > .warning > th
-  background-color: $brand-warning!important
+  color: $brand-warning!important
 
 label
   font-weight: 300
-  letter-spacing: 2px
+  letter-spacing: 105%
 
 footer
   margin-top: 20px

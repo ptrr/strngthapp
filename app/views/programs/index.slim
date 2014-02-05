@@ -5,7 +5,7 @@
       ' 5/3/1 cycle
     .panel-body
       ' This is one cycle.
-    table.table.table-striped
+    table.table.table-bordered
       tr
         th
         th Warm up
@@ -15,7 +15,7 @@
         th Deload
       tr#overhead_press.success
         th Overheadpress
-        td.warmup(style="background: #E8C574!important")
+        td.warmup(style="background: white!important")
           .rep0
           .rep1
           .rep2
@@ -37,7 +37,7 @@
           .rep2
       tr#deadlift.info
         th Deadlift
-        td.warmup(style="background: #E8C574!important")
+        td.warmup(style="background: white!important")
           .rep0
           .rep1
           .rep2
@@ -59,7 +59,7 @@
           .rep2
       tr#bench.warning
         th Bench
-        td.warmup(style="background: #E8C574!important")
+        td.warmup(style="background: white!important")
           .rep0
           .rep1
           .rep2
@@ -81,7 +81,7 @@
           .rep2
       tr#squat.danger
         th Squat
-        td.warmup(style="background: #E8C574!important")
+        td.warmup(style="background: white!important")
           .rep0
           .rep1
           .rep2
@@ -114,6 +114,8 @@
             =f.text_field :overhead_press_reps, placeholder: "Repetitions", class: 'form-control'
           .col-xs-4
             =f.text_field :overhead_press_weight, placeholder: "Weight", class: 'form-control'
+        .progress.progress-striped
+          .progress-bar.progress-bar-success role="progressbar" style="width: 20%"
 
         .row.form-group
           .col-xs-4
@@ -123,6 +125,9 @@
           .col-xs-4
             =f.text_field :deadlift_weight, class: 'form-control', placeholder: "Weight"
 
+        .progress.progress-striped
+          .progress-bar.progress-bar-info role="progressbar" style="width: 20%"
+
         .row.form-group
           .col-xs-4
             =f.label :bench
@@ -131,6 +136,9 @@
           .col-xs-4
             =f.text_field :bench_weight, class: 'form-control', placeholder: "Weight"
 
+        .progress.progress-striped
+          .progress-bar.progress-bar-warning role="progressbar" style="width: 20%"
+
         .row.form-group
           .col-xs-4
             =f.label :squat
@@ -138,6 +146,8 @@
             =f.text_field :squat_reps, class: 'form-control', placeholder: "Repetitions"
           .col-xs-4
             =f.text_field :squat_weight, class: 'form-control', placeholder: "Weight"
+        .progress.progress-striped
+          .progress-bar.progress-bar-danger role="progressbar" style="width: 20%"
 
   .form-actions.col-xs-12
     =f.submit 'Calculate',  class: 'btn btn-primary btn-lg btn-block'
