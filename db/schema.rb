@@ -17,15 +17,17 @@ ActiveRecord::Schema.define(version: 20140122163345) do
   enable_extension "plpgsql"
 
   create_table "programs", force: true do |t|
-    t.decimal "overhead_press_weight"
-    t.integer "overhead_press_reps"
-    t.decimal "deadlift_weight"
-    t.integer "deadlift_reps"
-    t.decimal "bench_weight"
-    t.integer "bench_reps"
-    t.decimal "squat_weight"
-    t.integer "squat_reps"
-    t.integer "user_id"
+    t.decimal  "overhead_press_weight"
+    t.integer  "overhead_press_reps"
+    t.decimal  "deadlift_weight"
+    t.integer  "deadlift_reps"
+    t.decimal  "bench_weight"
+    t.integer  "bench_reps"
+    t.decimal  "squat_weight"
+    t.integer  "squat_reps"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
