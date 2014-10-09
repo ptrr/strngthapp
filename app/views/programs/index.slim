@@ -21,7 +21,7 @@
         th Deload
       tr#overhead_press.success
         th Overheadpress
-        td.warmup(style="background: white!important")
+        td.warmup
           .rep0
           .rep1
           .rep2
@@ -43,7 +43,7 @@
           .rep2
       tr#deadlift.info
         th Deadlift
-        td.warmup(style="background: white!important")
+        td.warmup
           .rep0
           .rep1
           .rep2
@@ -65,7 +65,7 @@
           .rep2
       tr#bench.warning
         th Bench
-        td.warmup(style="background: white!important")
+        td.warmup
           .rep0
           .rep1
           .rep2
@@ -87,7 +87,7 @@
           .rep2
       tr#squat.danger
         th Squat
-        td.warmup(style="background: white!important")
+        td.warmup
           .rep0
           .rep1
           .rep2
@@ -120,9 +120,6 @@
             =f.text_field :overhead_press_reps, placeholder: "Repetitions", class: 'form-control'
           .col-xs-4
             =f.text_field :overhead_press_weight, placeholder: "Weight", class: 'form-control'
-        h6 Max lift:
-        #overhead_press_max_lift.label.label-success
-          ' 0 kg
 
         hr
         .row.form-group
@@ -133,9 +130,6 @@
           .col-xs-4
             =f.text_field :deadlift_weight, class: 'form-control', placeholder: "Weight"
 
-        h6 Max lift:
-        #deadlift_max_lift.label.label-info
-          ' 0 kg
 
         hr
         .row.form-group
@@ -146,10 +140,6 @@
           .col-xs-4
             =f.text_field :bench_weight, class: 'form-control', placeholder: "Weight"
 
-        h6 Max lift:
-        #bench_max_lift.label.label-warning
-          ' 0 kg
-
         hr
         .row.form-group
           .col-xs-4
@@ -159,12 +149,9 @@
           .col-xs-4
             =f.text_field :squat_weight, class: 'form-control', placeholder: "Weight"
 
-        h6 Max lift:
-        #squat_max_lift.label.label-danger
-          ' 0 kg
 
   .form-actions.col-xs-12
-    =f.submit 'Calculate',  class: 'btn btn-primary btn-lg btn-block'
+    =f.submit 'Calculate',  class: 'btn btn-info btn-lg btn-block'
 
 javascript:
   $( document ).ready(function() {

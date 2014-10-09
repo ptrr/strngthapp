@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :programs do
   end
 
+  resources :pages do
+  end
+
+  get '/disclaimer', controller: :pages, action: :disclaimer
   post '/get_strong', controller: :programs, action: :get_strong
   post '/level', controller: :programs, action: :level
 end

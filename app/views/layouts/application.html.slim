@@ -21,12 +21,16 @@ html lang="en"
 
 
   body
-    .header.container-fluid
-      h1
-        'Get Stronger
+    .container
+      .row
+        .col-md-12
+          h1
+            = link_to 'Get Stronger', '/'
+
+          hr
 
     .container
       .row
         = yield
       footer
-        =link_to 'Disclaimer', ''
+        =link_to 'Disclaimer', '/disclaimer'

@@ -4,7 +4,12 @@ $brand-success: rgba(29,206,115, 1)
 $brand-danger: rgba(231,76,60,0.9)
 $brand-warning: #FFAB2E
 $brand-info: #00D5F2
-$link-color: $brand-primary
+$link-color: $brand-danger
+$body-bg: black
+$gray-lighter: lighten(#000, 93.5%)
+$text-color: $gray-lighter
+$border-radius-large: 0
+$border-radius-base: 0
 
 @import "bootstrap"
 @import "bootstrap/mixins"
@@ -15,34 +20,71 @@ html
   height: 100%
   width: 100%
 
+body
+  font-family: "DejaVu Sans Mono", monospace
+
 .header
   margin-top: -20px
   margin-bottom: 30px
   padding: 40px
-  background: #eee
+  background: black
 
-  h1, h2, h3, h4, h5
-    font-weight: 100
-    color: black
+  hr
+    display: block
+    border: 0
+    content: "~"
+    &:before
+      content: "~"
+    &:after
+    
+
+h1, h2, h3, h4, h5
+  color: $brand-info
+  font-family: "DejaVu Sans Mono", monospace
+
 
 th
   font-weight: normal
+  border-color: $brand-warning!important
 
 td
   font-size: 0.9em
   color: white
+  border-color: $brand-warning!important
+
+hr
+  border-color: $brand-warning!important
+
+.form-control
+  background: black
+
+.panel
+  background: none
+  border-color: $brand-warning
+  .panel-heading
+    background: none
+    border: none
+  .panel-body
+    background: none
+
+.table
+  background: none!important
+  border-top: 1px $brand-warning solid!important
 
 .table>thead>tr>.info, .table>tbody>tr>.info, .table>tfoot>tr>.info, .table>thead>.info>td, .table>tbody>.info>td, .table>tfoot>.info>td, .table>thead>.info>th, .table>tbody>.info>th, .table>tfoot>.info>th
   color: $brand-info!important
-  background: $state-info-bg
+  //background: $state-info-bg
 
 .table>thead>tr>.danger, .table>tbody>tr>.danger, .table>tfoot>tr>.danger, .table>thead>.danger>td, .table>tbody>.danger>td, .table>tfoot>.danger>td, .table>thead>.danger>th, .table>tbody>.danger>th, .table>tfoot>.danger>th
+  background: none
   color: $brand-danger!important
 
 .table > thead > tr > .success, .table > thead > .success > td, .table > thead > .success > th, .table > tbody > tr > .success, .table > tbody > .success > td, .table > tbody > .success > th, .table > tfoot > tr > .success, .table > tfoot > .success > td, .table > tfoot > .success > th
+  background: none
   color: $brand-success!important
 
 .table > thead > tr > .warning, .table > thead > .warning > td, .table > thead > .warning > th, .table > tbody > tr > .warning, .table > tbody > .warning > td, .table > tbody > .warning > th, .table > tfoot > tr > .warning, .table > tfoot > .warning > td, .table > tfoot > .warning > th
+  background: none
   color: $brand-warning!important
 
 label
