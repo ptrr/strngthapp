@@ -1,0 +1,129 @@
+$brand-primary: #417f6a!default
+$brand-success: rgba(29,206,115, 1)
+$brand-danger: rgba(231,76,60,0.9)
+$brand-warning: #FFAB2E
+$brand-info: #00D5F2
+$link-color: $brand-danger
+$body-bg: black
+$gray-lighter: lighten(#000, 93.5%)
+$text-color: $gray-lighter
+$border-radius-large: 0
+$border-radius-base: 0
+$gray-light: #EAEAEA
+
+@import "bourbon"
+@import "neat"
+@import "base/base"
+@import "base/grid-settings"
+@import "refills/navigation"
+@import "refills/footer"
+@import "refills/textures"
+
+
+@mixin text-shadow($color, $offset-x, $offset-y, $dispersion)
+  text-shadow: $offset-x $offset-y $dispersion $color
+
+.container
+  @include outer-container
+  .row
+  .column-6
+    @include span-columns(6)
+  .column-3
+    @include span-columns(3)
+  .column-4
+    @include span-columns(4)
+    @include reset-display
+  .column-8
+    @include span-columns(8)
+  .column-12
+    @include span-columns(12)
+
+
+html
+  height: 100%
+  width: 100%
+
+body
+  padding: 0
+  margin: 0
+
+.header
+  margin-top: -20px
+  margin-bottom: 30px
+  padding: 40px
+  background: black
+
+  hr
+    display: block
+    border: 0
+    content: "~"
+    &:before
+      content: "~"
+    &:after
+    
+
+.calculator
+  h1, h2, h3, h4, h5
+    color: $brand-info
+
+
+  th
+    font-weight: normal
+    border-color: $brand-warning!important
+
+  td
+    font-size: 0.9em
+    color: white
+    border-color: $brand-warning!important
+
+  hr
+    border-color: $brand-warning!important
+
+  .panel
+    background: none
+    border-color: $brand-warning
+    .panel-heading
+      background: none
+      border: none
+    .panel-body
+      background: none
+
+  .table
+    background: none!important
+    border-top: 1px $brand-warning solid!important
+    font-size: 0.9em
+
+  .table>thead>tr>.info, .table>tbody>tr>.info, .table>tfoot>tr>.info, .table>thead>.info>td, .table>tbody>.info>td, .table>tfoot>.info>td, .table>thead>.info>th, .table>tbody>.info>th, .table>tfoot>.info>th
+    color: $brand-info!important
+    //background: $state-info-bg
+
+  .table>thead>tr>.danger, .table>tbody>tr>.danger, .table>tfoot>tr>.danger, .table>thead>.danger>td, .table>tbody>.danger>td, .table>tfoot>.danger>td, .table>thead>.danger>th, .table>tbody>.danger>th, .table>tfoot>.danger>th
+    background: none
+    color: $brand-danger!important
+
+  .table > thead > tr > .success, .table > thead > .success > td, .table > thead > .success > th, .table > tbody > tr > .success, .table > tbody > .success > td, .table > tbody > .success > th, .table > tfoot > tr > .success, .table > tfoot > .success > td, .table > tfoot > .success > th
+    background: none
+    color: $brand-success!important
+
+  .table > thead > tr > .warning, .table > thead > .warning > td, .table > thead > .warning > th, .table > tbody > tr > .warning, .table > tbody > .warning > td, .table > tbody > .warning > th, .table > tfoot > tr > .warning, .table > tfoot > .warning > td, .table > tfoot > .warning > th
+    background: none
+    color: $brand-warning!important
+
+label
+  font-weight: 300
+  letter-spacing: 105%
+
+footer
+  margin-top: 20px
+  border-top: 1px solid $gray-light
+  padding-top: 10px
+  padding-left: 10px
+
+.form
+  @include pad()
+.texture-normal
+  +texture(180deg, white, white, 67, 1)
+  height: 100%
+
+.clear-fix
+  clear: both

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :pages do
   end
 
+  get '/calculators/wendler', controller: :calculators, action: :wendler
+  resources :calculators do
+  end
+
   get '/disclaimer', controller: :pages, action: :disclaimer
   post '/get_strong', controller: :programs, action: :get_strong
   post '/level', controller: :programs, action: :level

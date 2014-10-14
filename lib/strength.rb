@@ -11,24 +11,15 @@ class Strength
     self.class.send(:include, Advanced) if !use_90_percent
   end
 
-  def one_rep_max
-    @one_rep_max
-  end
-
   def program
     {warmup: warm_up, week1: week1, week2: week2, week3: week3, deload: deload }
   end
 
   def max_lift
-    a = (@one_rep_max * @reps)
+    a = (one_rep_max * reps)
     b = (1.0/30.0)
-    @max_lift = a * b + @one_rep_max
+    max_lift = a * b + one_rep_max
   end
-
-
-  def main_lift
-  end
-
 
   def deload
     [
@@ -36,12 +27,6 @@ class Strength
       [5, Strength.round_with_smallest_increase(max_lift * 0.5)],
       [5, Strength.round_with_smallest_increase(max_lift * 0.6)]
     ]
-  end
-
-  def bbb(deload=false)
-  end
-
-  def calculate
   end
 
   class << self

@@ -1,0 +1,52 @@
+header.navigation
+  .menu-wrapper
+    a.logo href="javascript:void(0)" 
+      img alt="" src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" 
+    p#js-mobile-menu.navigation-menu-button MENU
+    .nav
+      ul#navigation-menu
+        li.nav-link
+          =link_to 'About'
+        li.nav-link
+          =link_to 'Health'
+        li.nav-link
+          =link_to 'Diet'
+        li.nav-link.more
+          a href="javascript:void(0)"  Calculators
+          ul.submenu
+            li
+              a href="javascript:void(0)"  Wendler 531
+            li
+              a href="javascript:void(0)"  Starting Strength
+    .navigation-tools
+      .search-bar
+        .search-and-submit
+          input placeholder=("Enter Search") type="search" /
+          button type="submit" 
+            img alt="" src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" 
+      a.sign-up href="javascript:void(0)"  Sign Up
+javascript:
+  | $(function() {
+    | var menu = $('#navigation-menu');
+    | var menuToggle = $('#js-mobile-menu');
+    | var signUp = $('.sign-up');
+
+    | $(menuToggle).on('click', function(e) {
+      | e.preventDefault();
+      | menu.slideToggle(function(){
+        | if(menu.is(':hidden')) {
+          | menu.removeAttr('style');
+        | }
+      | });
+    | });
+
+    /!/ underline under the active nav item
+    | $(".nav .nav-link").click(function() {
+      | $(".nav .nav-link").each(function() {
+        | $(this).removeClass("active-nav-item");
+      | });
+      | $(this).addClass("active-nav-item");
+      | $(".nav .more").removeClass("active-nav-item");
+    | });
+  | });
+

@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.0'                                  # Coffeescript
 gem 'slim-rails'                                              # Slim templates
 gem 'jquery-rails'                                            # JQuery JS framework
 gem 'neat'                                                    # Bourbon + Neat Sass framework
+gem 'bitters'
+gem 'refills'
 gem 'font-awesome-rails'                                      # Font Awesome icons
 gem 'gemoji'                                                  # Emojis
 gem 'redcarpet'                                               # Markdown parser
